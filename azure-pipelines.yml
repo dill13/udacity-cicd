@@ -11,7 +11,7 @@ variables:
   azureServiceConnectionId: 'ODLUserTemp'
   
   # Web app name
-  webAppName: 'flask-ml-service'
+  webAppName: 'dill13'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
