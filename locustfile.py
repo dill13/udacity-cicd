@@ -1,4 +1,4 @@
-from locust import HttpUser, task, between
+from locustfile import HttpUser, task, between
 import time
 
 class LoadTestIt(HttpUser):
@@ -7,5 +7,5 @@ class LoadTestIt(HttpUser):
     @task
     def check_result(self):
         self.client.get("/")
-        self.client.get("/forcefail?")
+        self.client.get("/forcefail")
 
