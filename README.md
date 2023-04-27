@@ -1,6 +1,6 @@
 # Overview
 
-This project aims to demonstrate the use of Azure pipelines to facilitate CI/CD delivery of a flask web application into Azure.
+This project aims to demonstrate the use of Azure pipelines performing CI/CD delivery of a flask web application into Azure.
 
 ## Project Plan
 [Excel Project Plan](documents/plan.xlsx)
@@ -16,9 +16,6 @@ During early project set up, Github actions were used to demonstrate an automate
 The end objective is to establish this system architecture
 
 ![system architecture](documents/Screen-Architecture.png)
-
-
-<TODO:  Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
 
 ### Using Azure Cloud Shell to deploy the application
 First get the project launched from Azure Cloud Shell.  Create ssh key access to your derivative of the repository and clone the repo there.  E.g.
@@ -42,7 +39,7 @@ Locust was used to load test the application.  The script can be found in [locus
 ### Preparing for Azure pipline
 You could use Microsoft build service (or Github actions instead of Azure pipeline), but I used a self hosted build server, spun up like this ...
 ```
-az vm create --name buildAgentVM --resource-group Azuredevops --image "Ubuntu2204" --size "Standard_DS1_v2" --authentication-type password --admin-password "<YourPasswordHere>" --admin-username "<AdminUserName" --public-ip-address buildAgentVMIp
+az vm create --name buildAgentVM --resource-group Azuredevops --image "Ubuntu2204" --size "Standard_DS1_v2" --authentication-type password --admin-password "<YourPasswordHere>" --admin-username "<AdminUserName>" --public-ip-address buildAgentVMIp
 
 az vm open-port -n buildAgentVM -g Azuredevops --port 22
 ```
@@ -79,43 +76,22 @@ pip show --files pylint
 export PATH=$HOME/.local/bin:$PATH
 echo $PATH
 ```
-Within the devops project settins, create a new service connection with type "Azure Resource Manager"
+From within the devops project settings, create a new service connection with type "Azure Resource Manager" and appropriate links to your Azure environment.
 
 ### Connecting up the pipeline
-From the devops project, create a new pipeline with type GitHub YAML.  Once pointing at the correct repo, it should find the existing [azure-pipelines.yml](azure-pipelines.yml).  You may need to customise variables such as azureServiceConnectionId, webAppName, etc to suite your environment.
+From the devops project, create a new pipeline with type GitHub YAML.  Once pointing at the correct repo, it should find the existing [azure-pipelines.yml](azure-pipelines.yml).  You may need to customise variables such as azureServiceConnectionId, webAppName, etc to suite your environment and chosen naming.
 Choose the option to Save and Run. On its' first run, you will need to authorise access for each stage manually from the pipeline's execution dialogue.
 
-Having completed the first run manually, the build and deployment should then get automatically triggered as source is checked into the main branch in GitHub ...
+Having completed the first run manually, the build and deployment should then get automatically triggered whenever source is checked into the main branch in GitHub, such as like this ...
 
-
-* Project running on Azure App Service
-
-* Project cloned into Azure Cloud Shell
-
-* Passing tests that are displayed after running the `make all` command from the `Makefile`
-
-* Output of a test run
-
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
-
-* Running Azure App Service from Azure Pipelines automatic deployment
-
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
-The output should look similar to this:
-
-```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
-```
-
-* Output of streamed log files from deployed application
-
-> 
+![Pipeline Top View](documents/Screen-AzurePipelineDeploy1.png)
+![Pipeline Detail View](documents/Screen-AzurePipelineDeploy2.png)
 
 ## Enhancements
 
-The locust testing could be further refined and perhaps included as an automated test phase to verify web app functionality post-deployment.
+The "make" test phase, which has placeholders here, could be extended to perform more meaningful validation of the application code.
+
+The locust testing could be extended and perhaps included as an automated test phase to verify web app functionality post-deployment.
 
 ## Demo 
 
