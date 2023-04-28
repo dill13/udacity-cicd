@@ -99,3 +99,5 @@ The locust testing could be extended and perhaps included as an automated test p
 
 ## Credits
 Locust test design was inspired by this [article](https://www.blazemeter.com/blog/locust-python)
+
+[![Python application test with Github Actions](https://github.com/dill13/udacity-cicd/actions/workflows/pythonapp.yml/badge.svg?branch=main)](https://github.com/dill13/udacity-cicd/actions/workflows/pythonapp.yml)
