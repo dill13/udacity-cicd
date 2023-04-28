@@ -36,7 +36,7 @@ The logs from the app can be viewed using `az webapp log` for [example](document
 ### Load testing
 Locust was used to load test the application.  The script can be found in [locustfile.py](locustfile.py) and [here](documents/Screen-LocustLoadTest.png) are some images of that in action.
 
-### Preparing for Azure pipline
+### Preparing for Azure pipeline
 You could use Microsoft build service (or Github actions instead of Azure pipeline), but I used a self hosted build server, spun up like this ...
 ```
 az vm create --name buildAgentVM --resource-group Azuredevops --image "Ubuntu2204" --size "Standard_DS1_v2" --authentication-type password --admin-password "<YourPasswordHere>" --admin-username "<AdminUserName>" --public-ip-address buildAgentVMIp
