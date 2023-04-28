@@ -8,7 +8,7 @@ This project aims to demonstrate the use of Azure pipelines performing CI/CD del
 [Trello board](https://trello.com/b/9uTtQnL1/house-price-prediction-app)
 
 ## Boilerplate construction phase
-During early project set up, Github actions were used to demonstrate an automated build & test phases of Makefile.  This was later replaced with the Azure pipeline build & deployment of the full working application.  But the evidence of that preparatory phase in action can be seen below.
+During early project set up, Github actions were used to demonstrate an automated build & test phases of Makefile.  Evidence of that preparatory phase in action can be seen below.
 ![Boilerplate MakeAll](docs/../documents/Screen-BoilerplateMakeAll.png)
 ![Boilerplate Build in Github actions](docs/../documents/Screen-Build+Test.png)
 
@@ -95,8 +95,7 @@ The locust testing could be extended and perhaps included as an automated test p
 
 ## Demo 
 
-<TODO: Add link Screencast on YouTube>
-
+[Project Demo](https://youtu.be/9cF34dQCcMs)
 
 ## Credits
 Locust test design was inspired by this [article](https://www.blazemeter.com/blog/locust-python)
